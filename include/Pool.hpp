@@ -1,15 +1,17 @@
 #pragma once
 #include <string>
 #include <array>
+#include "Server.hpp"
 
-namespace Sr{
+namespace sr{
     const int MAX_CHILD_COUNT = 5;
     const size_t MAX_PARENT_COUNT = 1;
-class Pool{
+class Pool: public Server{
     public:
-        Pool(){
-        
-        }
+        Pool():Server(){}
+
+        Pool(std::string ip, unsigned short port):Server(ip, port){}
+
         void SetName(std::string name){
             poolName = name;
         }
@@ -24,11 +26,13 @@ class Pool{
             else    return parent->poolName;
         }
 
+    
     private:
         int currentChildNum = 0;
         std::array<class Pool*, MAX_CHILD_COUNT> children;
         Pool *parent = nullptr;
         std::string poolName;
+       
 };
 
 };

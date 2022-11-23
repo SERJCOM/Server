@@ -1,0 +1,3 @@
+D:/prog/vscodeProjects/messenger/server/build/CMakeFiles/Debug.dir
+D:/prog/vscodeProjects/messenger/server/build/CMakeFiles/ALL_BUILD.dir
+D:/prog/vscodeProjects/messenger/server/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,6 +1,11 @@
 #include <iostream>
+#include "Pool.hpp"
 
 auto main() -> int{
-    std::cout << "hello world";
+    Sr::Pool main;
+    Sr::Pool child;
+    main.AddChild(&child);
+    main.SetName("serj");
+    std::cout << child.GetParentName() << std::endl;
     return 0;
 }

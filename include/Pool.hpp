@@ -1,12 +1,10 @@
 #pragma once
-#include <iostream>
 #include <string>
 #include <array>
 
-namespace Server{
+namespace Sr{
     const int MAX_CHILD_COUNT = 5;
     const size_t MAX_PARENT_COUNT = 1;
-
 class Pool{
     public:
         Pool(){
@@ -16,11 +14,16 @@ class Pool{
             poolName = name;
         }
         void AddChild(Pool* child){
+            child->parent = this;
             children[currentChildNum] = child;
             currentChildNum++;
         }
 
-    
+        std::string GetParentName(){
+            if(parent == nullptr)   return "";
+            else    return parent->poolName;
+        }
+
     private:
         int currentChildNum = 0;
         std::array<class Pool*, MAX_CHILD_COUNT> children;
